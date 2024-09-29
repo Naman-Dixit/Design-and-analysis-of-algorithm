@@ -9,4 +9,5 @@ Experiment 3 - Implement divide and conquer based merge sort and quick sort algo
 Experiment 4 - Compare the performance of Strassen method of matrix multiplication with traditional way of matrix multiplication.
 #
 **Greedy & Dynamic Programming Approach**
-Experiment 1 - •	Implement the activity selection problem to get a clear understanding of greedy approach.
+
+Experiment 1 - Implement the activity selection problem to get a clear understanding of greedy approach.
