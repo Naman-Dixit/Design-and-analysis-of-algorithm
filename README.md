@@ -11,3 +11,5 @@ Experiment 4 - Compare the performance of Strassen method of matrix multiplicati
 **Greedy & Dynamic Programming Approach**
 
 Experiment 5 - Implement the activity selection problem to get a clear understanding of greedy approach.
+Experiment 6 - •	Get a detailed insight of dynamic programming approach by the implementation of Matrix Chain Multiplication
+problem and see the impact of parenthesis positioning on time requirements for matrix multiplication.
