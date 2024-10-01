@@ -10,4 +10,4 @@ Experiment 4 - Compare the performance of Strassen method of matrix multiplicati
 #
 **Greedy & Dynamic Programming Approach**
 
-Experiment 1 - Implement the activity selection problem to get a clear understanding of greedy approach.
+Experiment 5 - Implement the activity selection problem to get a clear understanding of greedy approach.
