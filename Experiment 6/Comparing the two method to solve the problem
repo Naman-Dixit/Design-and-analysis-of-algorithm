@@ -1,0 +1,99 @@
+Detailed Insight of Dynamic Programming Approach
+
+Dynamic Programming (DP) is a powerful technique for solving optimization problems by breaking them into overlapping subproblems. The Matrix Chain Multiplication Problem is a classic example that demonstrates how DP can minimize the computational cost of performing a sequence of matrix multiplications, with a focus on the impact of parenthesis positioning.
+
+---
+Dynamic Programming Approach
+
+Problem Definition
+
+Given \( n \) matrices \( A_1, A_2, ..., A_n \) with dimensions \( p_0 \times p_1, p_1 \times p_2, ..., p_{n-1} \times p_n \), the goal is to determine the optimal order of multiplications that minimizes the scalar multiplications.
+
+---
+Key Idea
+
+Matrix multiplication is associative, but the cost of multiplication depends on the order. By strategically placing parentheses, we can significantly reduce the number of scalar multiplications required.
+
+---
+
+Steps in DP Approach
+
+1. Define Subproblems:
+   - Let `dp[i][j]` represent the minimum number of scalar multiplications required to compute the product of matrices \( A_i \) to \( A_j \).
+
+2. Recursive Relation:
+   - For a sub-chain \( A_i \) to \( A_j \), try every possible split point \( k \) where \( i \leq k < j \):
+     \[
+     dp[i][j] = \min_{i \leq k < j} \big(dp[i][k] + dp[k+1][j] + p_{i-1} \cdot p_k \cdot p_j\big)
+     \]
+
+3. Base Case:
+   - When \( i = j \), there is only one matrix, so \( dp[i][j] = 0 \).
+
+4. Iterative DP:
+   - Solve smaller subproblems first and use their solutions to solve larger problems.
+
+5. rack Parenthesis:
+   - Maintain a `split[i][j]` table to store the split points for optimal parenthesization.
+---
+Impact of Parenthesis Positioning
+
+Parenthesis positioning changes the order of operations, directly affecting the time required for multiplication:
+
+Example 1
+
+Input:  
+Matrices \( A1 (10 \times 20) \), \( A2 (20 \times 30) \), \( A3 (30 \times 40) \).  
+
+Possible Orders:
+1. \((A1A2)A3\):
+   - First multiply \( A1 \times A2 \): \( 10 \times 20 \times 30 = 6000 \).
+   - Then multiply the result with \( A3 \): \( 10 \times 30 \times 40 = 12000 \).
+   - Total cost = \( 6000 + 12000 = 18000 \).
+
+2. \(A1(A2A3)\):
+   - First multiply \( A2 \times A3 \): \( 20 \times 30 \times 40 = 24000 \).
+   - Then multiply \( A1 \): \( 10 \times 20 \times 40 = 8000 \).
+   - Total cost = \( 24000 + 8000 = 32000 \).
+
+Optimal Parenthesization: \((A1A2)A3\) with cost \( 18000 \).
+
+---
+
+Time and Space Complexity
+
+Time Complexity:
+- \( O(n^3) \):
+  - Three nested loops are required:
+    1. Chain length (\( l \)) iteration.
+    2. Start index (\( i \)) iteration.
+    3. Split point (\( k \)) iteration.
+
+Space Complexity:
+- \( O(n^2) \): Two \( n \times n \) tables (`dp` and `split`).
+
+---
+
+Experimental Results
+
+Impact of Parenthesis Positioning
+
+Matrix dimensions: \( [10, 20, 30, 40, 50] \).
+
+1. Cost Without Optimal Parenthesization:
+   - Multiply in given order: \( A1 \times A2 \times A3 \times A4 \).
+   - Cost = \( (10 \times 20 \times 30) + (10 \times 30 \times 40) + (10 \times 40 \times 50) = 74000 \).
+
+2. Cost With Optimal Parenthesization:
+   - Optimal splits: \(((A1A2)(A3A4))\).
+   - Cost = \( (10 \times 20 \times 30) + (30 \times 40 \times 50) + (10 \times 30 \times 50) = 38000 \).
+
+Reduction: \( 74000 - 38000 = 36000 \).
+
+---
+
+Conclusion
+
+- Parenthesis Positioning: Significantly impacts the total cost of computation, especially for larger chains of matrices.
+- Dynamic Programming: Provides an efficient way to compute the optimal order by systematically evaluating all possible solutions and storing intermediate results.
+- Applications: Matrix Chain Multiplication is foundational in algorithms for graphics, scientific computing, and AI.
