@@ -1,0 +1,33 @@
+Comparison of Algorithms:
+
+
+1. Naive String-Matching Algorithm:
+
+Time Complexity: O((n - m + 1) * m), where n is the length of the text and m is the length of the pattern.
+Space Complexity: O(1).
+Best for: Small inputs, simple implementation.
+Limitations: Inefficient for large inputs due to excessive comparisons.
+
+2. Rabin-Karp Algorithm:
+
+Time Complexity: O(n + m) on average, but O(n * m) in the worst case (when hash collisions occur frequently).
+Space Complexity: O(m).
+Best for: Searching multiple patterns (can be extended for multiple pattern matching).
+Limitations: Hash collisions may reduce performance in some cases.
+
+3. KMP Algorithm:
+
+Time Complexity: O(n + m), where n is the length of the text and m is the length of the pattern.
+Space Complexity: O(m) for storing the LPS array.
+Best for: Efficient searching for a single pattern.
+Limitations: Slightly more complex to implement than Naive or Rabin-Karp.
+
+
+Performance Comparison:
+
+Naive: Simple but inefficient, especially for large texts and patterns.
+Rabin-Karp: Fast in the average case but can degrade due to hash collisions.
+KMP: The most efficient in terms of time complexity for single-pattern matching.
+
+How to Test Performance:
+When running the code, enter a text string and a pattern string, and the algorithm will print the matched indices along with the execution time in nanoseconds for comparison.
